@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 
+		package中属性name仅仅是一个名字，没有具体的任何作用，只要做到所有的pageage的name不相同即可
+		package中属性namespace只浏览器中输入的action连接的命名空间，
+			是用来将浏览器中地址栏中的地址，和<action></action>中的名称进行匹配，指向某个具体的类的具体方法的
+		
+		action中属性name是浏览器地址栏中的action的name，比如login.action
+		action中属性class是指的类的名字
+		action中属性method是指类中具体的方法的名字
+	 -->
+	<package name="a" extends="struts-default" namespace="/test">
+		<action name="test" class="testAction" method="test">
+			<result name="success">/WEB-INF/templates/test.jsp</result>
+		</action>
+		<action name="toTestOutSpringToBean" class="testAction" 
+			method="toTestOutSpringToBean">
+			<result name="success">/WEB-INF/templates/test/testOutSpringToBean.jsp</result>
+		</action>
+		<action name="testOutSpringToBean" class="testAction" 
+			method="testOutSpringToBean">
+			<result name="success">/WEB-INF/templates/test.jsp</result>
+		</action>
+		
+		
+		<action name="toTestStrutsAddSpring" class="testAction" 
+			method="toTestStrutsAddSpring">
+			<result name="success">/WEB-INF/templates/test/testStrutsAddSpring.jsp</result>
+		</action>
+		<action name="testStrutsAddSpring" class="testAction" 
+			method="testStrutsAddSpring">
+			<result name="success">/WEB-INF/templates/test.jsp</result>
+		</action>
+		
+		
+		
+		<action name="testServiceMethod" class="testAction" 
+			method="testServiceMethod">
+			<result name="success">/WEB-INF/templates/test.jsp</result>
+		</action>
+		
+		
+		
+		<action name="testSpringIocService" class="testAction" 
+			method="testSpringIocService">
+			<result name="success">/WEB-INF/templates/test.jsp</result>
+		</action>
+		
+		
+		
+		<action name="testSimgle" class="testAction" 
+			method="testSimgle">
+			<result name="success">/WEB-INF/templates/test.jsp</result>
+		</action>
+		
+		
+		<action name="testWobSocket" class="testAction" 
+			method="testWobSocket">
+			<result name="success">/WEB-INF/templates/test/testWobSocket.xhtml</result>
+		</action>
+		
+		
+		<action name="toNumberOnline" class="testAction" 
+			method="toNumberOnline">
+			<result name="success">/WEB-INF/templates/test/numberOnline.xhtml</result>
+		</action>
+		
+		
+		<action name="toLogoutJsp" class="testAction" 
+			method="toLogoutJsp">
+			<result name="success">/WEB-INF/templates/test/toLogoutJsp.jsp</result>
+		</action>
+		
+		
+		
+		<action name="destorySession" class="testAction" method="destorySession">
+		</action>
+		
+		
+	</package>
+</struts>

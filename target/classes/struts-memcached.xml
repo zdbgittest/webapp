@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="mem" extends="struts-default" namespace="/mem">
+		<action name="list" class="memcachedAction" method="list">
+			<result name="success">/WEB-INF/templates/mem/list.jsp</result>
+		</action>		
+		<action name="memTest" class="memcachedAction" method="memTest">
+			<result name="success">/WEB-INF/templates/mem/memTest.jsp</result>
+		</action>
+		<action name="ajaxSaveMem" class="memcachedAction" method="ajaxSaveMem"></action>
+		<action name="ajaxGetMem" class="memcachedAction" method="ajaxGetMem"></action>
+		<action name="createLimit" class="memcachedAction" method="createLimit"></action>
+		<action name="flash" class="memcachedAction" method="flash"></action>
+		
+	</package>
+</struts>

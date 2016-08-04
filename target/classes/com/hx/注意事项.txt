@@ -1,0 +1,2 @@
+1.该项目不采用action，service，dao，jdbc类型，简化掉dao层，完全没什么用，直接在service层中调用jdbc来持久化数据
+	（可以搜索一下domain object，它没什么用）

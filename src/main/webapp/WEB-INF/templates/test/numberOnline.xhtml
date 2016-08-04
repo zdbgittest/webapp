@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>用户在线人数统计页面</title>
+</head>
+<body>
+<div class="noscript"><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websockets rely on Javascript being enabled. Please enable
+    Javascript and reload this page!</h2></div>
+<div>
+	在线的人数统计：<div id="number"></div>
+</div>
+    <script type="application/javascript"><![CDATA[
+
+        var Chat = {};
+
+        Chat.socket = null;
+
+        Chat.connect = (function(host) {
+            if ('WebSocket' in window) {
+                Chat.socket = new WebSocket(host);
+            } else if ('MozWebSocket' in window) {
+                Chat.socket = new MozWebSocket(host);
+            } else {
+                alert('Error: WebSocket is not supported by this browser.');
+                return;
+            }
+
+            Chat.socket.onopen = function () {
+            };
+
+            Chat.socket.onclose = function () {
+            };
+
+            Chat.socket.onmessage = function (message) {
+            	document.getElementById('number').innerHTML = message.data;
+            };
+        });
+
+        Chat.initialize = function() {
+            if (window.location.protocol == 'http:') {
+                Chat.connect('ws://' + window.location.host + '/webSocket/goNumberOnline');
+            } else {
+                Chat.connect('wss://' + window.location.host + '/webSocket/goNumberOnline');
+            }
+        };
+
+
+        Chat.initialize();
+
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Remove elements with "noscript" class - <noscript> is not allowed in XHTML
+            var noscripts = document.getElementsByClassName("noscript");
+            for (var i = 0; i < noscripts.length; i++) {
+                noscripts[i].parentNode.removeChild(noscripts[i]);
+            }
+        }, false);
+
+    ]]></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://JAVA.sun.com/xml/ns/j2ee http://JAVA.sun.com/xml/ns/j2ee/web-app_2_5.xsd http://java.sun.com/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee" id="WebApp_ID" version="2.5">
+  	<welcome-file-list>
+  		<welcome-file>index.jsp</welcome-file>
+  	</welcome-file-list>
+	<context-param>
+	  <param-name>basePath</param-name>
+	  <param-value>/notarization</param-value>
+	</context-param>
+  	<!-- 启动spring容器  这个classpath指的是 WEB-INF文件夹下的classes目录  -->
+  	<context-param>
+    	<param-name>contextConfigLocation</param-name>
+    	<param-value>classpath:applicationContext*.xml</param-value>
+  	</context-param>
+  	<listener>
+  		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+  	<!-- 监听器，项目初始化使用 -->
+  	<listener>  
+  		<listener-class>com.hx.util.InitListener</listener-class>  
+	</listener>
+	
+	<!-- 监听session的创建和销毁 -->
+	<listener>  
+    	<listener-class>com.hx.util.SessionListener</listener-class>  
+	</listener>  
+  	
+  	
+  	
+	<!-- session过滤器，还有一些别的操作 -->
+  	<filter>
+		<filter-name>sessionFilter</filter-name>
+		<filter-class>com.hx.util.SessionFilter</filter-class>
+	</filter>
+  	<filter-mapping>
+  		<filter-name>sessionFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+  	</filter-mapping>
+  	
+  	<!-- 启动struts2的核心拦截器 ，struts2核心过滤器必须放在自己写的过滤器的后边，不然不起作用 -->
+  	<filter>
+    	<filter-name>struts2</filter-name>
+    	<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+  	</filter>
+  	<filter-mapping>
+    	<filter-name>struts2</filter-name>
+    	<url-pattern>/*</url-pattern>
+  	</filter-mapping>
+  	
+  	
+  	
+  	
+  	
+  	<!-- servlet，项目初始化使用 -->
+  	<servlet>
+    	<servlet-name>initServlet</servlet-name>
+    	<servlet-class>com.hx.util.InitServlet</servlet-class>
+    	<load-on-startup>1</load-on-startup>
+    </servlet>
+  	
+  	<servlet>
+        <servlet-name>ChatServlet</servlet-name>
+        <servlet-class>com.hx.util.WebSocketServlet</servlet-class>
+    </servlet>
+  	<servlet-mapping>
+        <servlet-name>ChatServlet</servlet-name>
+        <url-pattern>/webSocket/createLink</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet>
+        <servlet-name>numberOnline</servlet-name>
+        <servlet-class>com.hx.util.NumberOnline</servlet-class>
+    </servlet>
+  	<servlet-mapping>
+        <servlet-name>numberOnline</servlet-name>
+        <url-pattern>/webSocket/goNumberOnline</url-pattern>
+    </servlet-mapping>
+    
+  	
+  	
+  	
+  	
+  	<!-- 设置session的失效时间是300分钟 -->
+	<session-config>
+		<session-timeout>1</session-timeout>
+	</session-config>
+  
+</web-app>
