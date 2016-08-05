@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.1.min.js"></script>
+<script type="text/javascript" src="/jquery/jquery-1.3.1.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -39,6 +39,8 @@
 	<br><br>
 	获取memcached中所有的key
 	<br>
+	<input type="button" value="获取所有的key" onclick="getAllKeys()"/>
+	
 </body>
 <script type="text/javascript">
 	function saveMem(){
@@ -95,6 +97,20 @@
 		$.ajax({
 			type:"POST",
 			url:"/mem/flash.action",
+			dataType:"txt",
+			cache:false,
+			async:false,
+			success:function(data){
+				alert(data);
+			}
+		});
+	}
+	
+	
+	function getAllKeys(){
+		$.ajax({
+			type:"POST",
+			url:"/mem/getAllKey.action",
 			dataType:"txt",
 			cache:false,
 			async:false,

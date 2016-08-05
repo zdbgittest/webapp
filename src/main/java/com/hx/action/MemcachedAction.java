@@ -1,6 +1,9 @@
 package com.hx.action;
 
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.context.annotation.Scope;
@@ -69,7 +72,46 @@ public class MemcachedAction extends BaseAction{
 	
 	//获取memcached中所有的key
 	public void getAllKey(){
-		
+		try{
+			List<String> list = MemcachedUtils.getAllKeys();
+			int totalNum = 0;
+			int rightNum = 0;
+			int wrongNum = 0;
+			
+			
+			int[] arr = new int[list.size()];
+			for(int i=0;i<list.size();i++){
+				String a = list.get(i);
+				Integer aa = Integer.valueOf(a);
+				int aaa = aa.intValue();
+				arr[i] = aaa;
+			}
+			
+			Arrays.sort(arr);
+			
+			for(int i:arr){
+				System.out.println(i);
+			}
+			System.out.println(list.toString());
+			
+			for(String key:list){
+				if(MemcachedUtils.get(key) == null){
+					wrongNum++;
+				}else{
+//				System.out.println("key:"+key+"    value:"+MemcachedUtils.get(key));
+					rightNum++;
+				}
+				totalNum++;
+			}
+			
+			System.out.println("正确："+rightNum);
+			System.out.println("错误："+wrongNum);
+			System.out.println("总数："+totalNum);
+			
+			writeAjaxString("获取所有key，已完毕");
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 	
 	

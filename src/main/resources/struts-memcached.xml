@@ -15,6 +15,8 @@
 		<action name="ajaxGetMem" class="memcachedAction" method="ajaxGetMem"></action>
 		<action name="createLimit" class="memcachedAction" method="createLimit"></action>
 		<action name="flash" class="memcachedAction" method="flash"></action>
+		<action name="getAllKey" class="memcachedAction" method="getAllKey"></action>
+		
 		
 	</package>
 </struts>
