@@ -41,6 +41,12 @@
 	<br>
 	<input type="button" value="获取所有的key" onclick="getAllKeys()"/>
 	
+	
+	<br><br>
+	控制台输出test
+	<br>
+	<input type="button" value="测试" onclick="test()">
+	
 </body>
 <script type="text/javascript">
 	function saveMem(){
@@ -116,6 +122,18 @@
 			async:false,
 			success:function(data){
 				alert(data);
+			}
+		});
+	}
+	
+	function test(){
+		$.ajax({
+			type:"POST",
+			url:"/mem/test.action",
+			dataType:"txt",
+			cache:false,
+			async:false,
+			success:function(data){
 			}
 		});
 	}

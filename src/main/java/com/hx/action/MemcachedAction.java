@@ -1,9 +1,8 @@
 package com.hx.action;
 
 
-import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.context.annotation.Scope;
@@ -19,6 +18,8 @@ public class MemcachedAction extends BaseAction{
 	private String key;
 	private String value;
 	private int limit;
+
+	
 
 	public String list(){
 //		MemcachedUtils.set("haha", "123abc",new Date(1000 * 60));
@@ -78,22 +79,6 @@ public class MemcachedAction extends BaseAction{
 			int rightNum = 0;
 			int wrongNum = 0;
 			
-			
-			int[] arr = new int[list.size()];
-			for(int i=0;i<list.size();i++){
-				String a = list.get(i);
-				Integer aa = Integer.valueOf(a);
-				int aaa = aa.intValue();
-				arr[i] = aaa;
-			}
-			
-			Arrays.sort(arr);
-			
-			for(int i:arr){
-				System.out.println(i);
-			}
-			System.out.println(list.toString());
-			
 			for(String key:list){
 				if(MemcachedUtils.get(key) == null){
 					wrongNum++;
@@ -115,6 +100,48 @@ public class MemcachedAction extends BaseAction{
 	}
 	
 	
+	
+	/**
+	 * 所有 的测试都在这
+	 * @return
+	 */
+	public void test(){
+		try {
+//			下边是测试一个新的获取所有key的方法
+//			Map<String,KeysBean> map = MemcachedUtils.getKeysForMap();
+//			int i=0;
+//			for (Map.Entry<String, KeysBean> entry : map.entrySet()) {
+//				String key = entry.getKey();
+//				KeysBean kb = entry.getValue();
+//				
+//				System.out.println("key:"+key+"     server:"+kb.getServer()
+//					+"    byte:"+kb.getBytes()+"     expiry:"+kb.getExpiry());
+//				i++;
+//			}
+//			System.out.println(i);
+			
+			//编边是测试一个新的获取key的方法2
+//			List<String> list = MemcachedUtils.getAllKeys();        
+//			int i=0;                                                          
+//			for (String s:list) {        
+//				System.out.println("key:"+s+"    value:"+MemcachedUtils.get(s));  
+//				i++;
+//			}                                                                 
+//			System.out.println(i);  
+			
+			
+			//设置缓存失效时间
+			MemcachedUtils.set("testTime", "测试缓存失效时间", new Date(1000*10));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	//下边这个是设置抢单的初始信息，比如抢什么，总共多少个，抢单有效时间
+	public void setRobOrder(){
+		
+	}
 	
 	
 	

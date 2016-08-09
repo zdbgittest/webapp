@@ -16,6 +16,7 @@
 		<action name="createLimit" class="memcachedAction" method="createLimit"></action>
 		<action name="flash" class="memcachedAction" method="flash"></action>
 		<action name="getAllKey" class="memcachedAction" method="getAllKey"></action>
+		<action name="test" class="memcachedAction" method="test"></action>
 		
 		
 	</package>
