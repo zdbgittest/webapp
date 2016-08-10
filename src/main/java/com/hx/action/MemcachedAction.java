@@ -131,17 +131,46 @@ public class MemcachedAction extends BaseAction{
 			
 			
 			//设置缓存失效时间
-			MemcachedUtils.set("testTime", "测试缓存失效时间", new Date(1000*10));
+//			MemcachedUtils.set("testTime", "测试缓存失效时间", new Date(1000*10));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
 	
+	private String openId;//抢什么的标识，比如商品的id
+	private int num;//总共多少个
+	private int timeNum;//能抢多久
 	//下边这个是设置抢单的初始信息，比如抢什么，总共多少个，抢单有效时间
 	public void setRobOrder(){
-		
+		MemcachedUtils.set(openId, num, new Date(timeNum*1000));
 	}
+	
+	private String userId;
+	private static int EXPDATE = 3600;//多久过期
+	//抢单，其中userid为当前操作人的id，这里直接从页面上传到后台
+	//抢单中需要判断当前用户是否已经抢过单子了，那么判断方法也是缓存
+	//一旦当前用户成功的抢到了单子，那么把   抢单的标识（如商品id）-userid 的形式放在缓存中，
+	//这样每次用户抢单的时候可以去判断是否还能抢单了
+	//而且用户抢单成功，需要减少总数量，这个环节需要进行并发处理
+	public void robOrder(){
+		boolean flag = (Boolean) MemcachedUtils.get(openId+userId);
+		System.out.println(flag);
+		
+		if(!flag){
+			MemcachedUtils.set(openId+userId, true, new Date(EXPDATE));
+			num = (Integer) MemcachedUtils.get(openId);
+			
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -166,5 +195,32 @@ public class MemcachedAction extends BaseAction{
 	}
 	public void setLimit(int limit) {
 		this.limit = limit;
+	}
+	public String getOpenId() {
+		return openId;
+	}
+	public void setOpenId(String openId) {
+		this.openId = openId;
+	}
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
+	public int getTimeNum() {
+		return timeNum;
+	}
+	public void setTimeNum(int timeNum) {
+		this.timeNum = timeNum;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	public static void main(String[] args) {
+		MemcachedUtils.set("err", "err", new Date(1000*20));
 	}
 }
