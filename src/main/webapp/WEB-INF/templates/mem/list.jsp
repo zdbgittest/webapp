@@ -7,5 +7,7 @@
 </head>
 <body>
 	<a href="/mem/memTest.action">前往ajax测试memcached的保存个获取</a>
+	<br>
+	<a href="/mem/memTestNew.action">新的memcached</a>
 </body>
 </html>

@@ -1,7 +1,6 @@
 package com.hx.action;
 
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -10,7 +9,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.hx.base.BaseAction;
-import com.hx.test.MyMemcachedUtil;
 import com.hx.util.MemcachedUtils;
 
 @Controller
@@ -187,6 +185,32 @@ public class MemcachedAction extends BaseAction{
 	
 	
 	
+	//新的测试页面
+	public String memTestNew(){
+		return SUCCESS;
+	}
+	
+	//设置值
+	public void setMem(){
+		MemcachedUtils.set(key, value,new Date(1000*20));
+		writeAjaxString("成功了");
+	}
+	
+	//获取值
+	public void getMem(){
+		Object o = MemcachedUtils.get(key);
+		if(o!=null){
+			writeAjaxString(o.toString());
+		}else{
+			writeAjaxString("");
+		}
+	}
+	
+	//各种测试
+	public void testMem(){
+		MemcachedUtils.replace(key, value);
+		
+	}
 	
 
 	public String getKey() {

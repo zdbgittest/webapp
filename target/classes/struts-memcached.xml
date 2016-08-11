@@ -18,7 +18,11 @@
 		<action name="getAllKey" class="memcachedAction" method="getAllKey"></action>
 		<action name="test" class="memcachedAction" method="test"></action>
 		<action name="setRobOrder" class="memcachedAction" method="setRobOrder"></action>
-		
-		
+		<action name="memTestNew" class="memcachedAction" method="memTestNew">
+			<result name="success">/WEB-INF/templates/mem/memTestNew.jsp</result>
+		</action>
+		<action name="setMem" class="memcachedAction" method="setMem"></action>
+		<action name="getMem" class="memcachedAction" method="getMem"></action>
+		<action name="testMem" class="memcachedAction" method="testMem"></action>
 	</package>
 </struts>
