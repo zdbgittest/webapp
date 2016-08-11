@@ -36,7 +36,9 @@
 </body>
 <script type="text/javascript">
 	var time;
+	var timer;//定时器
 	function setMem(){
+		clearInterval(timer);    //清除定时器
 		$.ajax({
 			type:"POST",
 			url:"/mem/setMem.action",
@@ -52,7 +54,7 @@
 				
 				time = 20;
 				$("#timeSpanId").text(time);
-				setInterval(function(){daojishi();},1000);
+				timer = setInterval(function(){daojishi();},1000);
 			}
 		});
 	}
@@ -60,6 +62,7 @@
 	function daojishi(){
 		if(time == 0){
 			$("#timeSpanId").text("缓存消失了！");
+			clearInterval(timer);    //清除定时器
 		}else{
 			time = time - 1;
 			$("#timeSpanId").text(time);

@@ -473,4 +473,23 @@ public class MemcachedUtils {
 		}  
 		return list;  
 	}   
+	
+	
+	
+	
+	//自己写的用来测试的东西
+	public static Object testMem(String key,String value) {  
+        Object obj = null;  
+        try { 
+        	System.out.println(cachedClient.addOrDecr(key));
+        	System.out.println(cachedClient.getCounter(key));
+        	System.out.println(cachedClient.sync(key));
+        }catch(Exception e){
+        	e.printStackTrace();
+        }
+        return obj;
+	}
+	
+	
+	
 }

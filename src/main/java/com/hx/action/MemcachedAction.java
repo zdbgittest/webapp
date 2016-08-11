@@ -208,7 +208,7 @@ public class MemcachedAction extends BaseAction{
 	
 	//各种测试
 	public void testMem(){
-		MemcachedUtils.replace(key, value);
+		MemcachedUtils.testMem(key, value);
 		
 	}
 	
