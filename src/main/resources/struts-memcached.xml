@@ -17,6 +17,7 @@
 		<action name="flash" class="memcachedAction" method="flash"></action>
 		<action name="getAllKey" class="memcachedAction" method="getAllKey"></action>
 		<action name="test" class="memcachedAction" method="test"></action>
+		<action name="setRobOrder" class="memcachedAction" method="setRobOrder"></action>
 		
 		
 	</package>

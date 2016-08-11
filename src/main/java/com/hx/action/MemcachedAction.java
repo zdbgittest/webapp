@@ -1,6 +1,7 @@
 package com.hx.action;
 
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -9,6 +10,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.hx.base.BaseAction;
+import com.hx.test.MyMemcachedUtil;
 import com.hx.util.MemcachedUtils;
 
 @Controller
@@ -132,6 +134,9 @@ public class MemcachedAction extends BaseAction{
 			
 			//设置缓存失效时间
 //			MemcachedUtils.set("testTime", "测试缓存失效时间", new Date(1000*10));
+			
+			System.out.println("商品剩余数量："+MemcachedUtils.get("912456"));
+			System.out.println("抢单结束时间："+MemcachedUtils.get("912456endTime"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -140,10 +145,17 @@ public class MemcachedAction extends BaseAction{
 	
 	private String openId;//抢什么的标识，比如商品的id
 	private int num;//总共多少个
-	private int timeNum;//能抢多久
-	//下边这个是设置抢单的初始信息，比如抢什么，总共多少个，抢单有效时间
+	private int endTime;//能抢多久
+	//下边这个是设置抢单的初始信息，比如抢什么，总共多少个，抢单截止时间
+	//由于memcached初始化设置的缓存中有失效时间，那么在替换value时，如果用set，那么失效时间办法简单直观的设置
+	//如果用replace，依旧是失效时间无法设置，所以需要的单独存放一个失效时间，每次改变剩余数量的时候都需要进行计算剩余时间然后设置进去
 	public void setRobOrder(){
-		MemcachedUtils.set(openId, num, new Date(timeNum*1000));
+		MemcachedUtils.set(openId, num, new Date(1000*endTime));
+		
+		
+		MemcachedUtils.set(openId+"endTime", endTime);
+		
+		writeAjaxString("成功了");
 	}
 	
 	private String userId;
@@ -158,9 +170,11 @@ public class MemcachedAction extends BaseAction{
 		System.out.println(flag);
 		
 		if(!flag){
-			MemcachedUtils.set(openId+userId, true, new Date(EXPDATE));
-			num = (Integer) MemcachedUtils.get(openId);
-			
+			MemcachedUtils.set(openId+userId, true, new Date(EXPDATE));//设置当前用户的抢到的订单。且该订单有 有效期
+			num = (Integer) MemcachedUtils.get(openId);//得到剩余的能抢的商品的数量
+			num = num - 1;//减一
+			//再把抢过之后的商品数量和抢单结束日期放入缓存中
+			MemcachedUtils.set(openId, num,(Date)MemcachedUtils.get(openId+"endTime"));
 		}
 	}
 	
@@ -208,12 +222,6 @@ public class MemcachedAction extends BaseAction{
 	public void setNum(int num) {
 		this.num = num;
 	}
-	public int getTimeNum() {
-		return timeNum;
-	}
-	public void setTimeNum(int timeNum) {
-		this.timeNum = timeNum;
-	}
 	public String getUserId() {
 		return userId;
 	}
@@ -222,5 +230,17 @@ public class MemcachedAction extends BaseAction{
 	}
 	public static void main(String[] args) {
 		MemcachedUtils.set("err", "err", new Date(1000*20));
+	}
+	public static int getEXPDATE() {
+		return EXPDATE;
+	}
+	public static void setEXPDATE(int eXPDATE) {
+		EXPDATE = eXPDATE;
+	}
+	public int getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(int endTime) {
+		this.endTime = endTime;
 	}
 }

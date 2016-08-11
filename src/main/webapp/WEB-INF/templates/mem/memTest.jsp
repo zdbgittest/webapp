@@ -4,6 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="/jquery/jquery-1.3.1.min.js"></script>
+<script type="text/javascript" src="/jquery/My97DatePicker/WdatePicker.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -46,6 +47,16 @@
 	控制台输出test
 	<br>
 	<input type="button" value="测试" onclick="test()">
+	
+	<br><br>
+	下边是抢单test
+	<br>
+	抢单商品id：<input type="text" id="openId" />
+	商品数量：<input type="text" id="num">
+	抢单结束时间：<input type="text" id="endTime">
+	<input type="button" value="提交" onclick="setRobOrder();"/>
+	<span style="color: red;width: 200px;" id="setRobOrderNotice"></span>
+	
 	
 </body>
 <script type="text/javascript">
@@ -137,5 +148,21 @@
 			}
 		});
 	}
+	
+	
+	function setRobOrder(){
+		$.ajax({
+			type:"POST",
+			url:"/mem/setRobOrder.action",
+			dataType:"txt",
+			data:"openId="+$("#openId").val()+"&num="+$("#num").val()+"&endTime="+$("#endTime").val(),
+			cache:false,
+			async:false,
+			success:function(data){
+				$("#setRobOrderNotice").text(data);
+			}
+		});
+	}
+	
 </script>
 </html>
