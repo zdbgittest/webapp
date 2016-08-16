@@ -21,13 +21,18 @@
         <webClassPathEntry>D:/maven-3.1.0/.m2/repository/freemarker/freemarker/2.3.16/freemarker-2.3.16.jar</webClassPathEntry>
         <webClassPathEntry>D:/maven-3.1.0/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar</webClassPathEntry>
         <webClassPathEntry>D:/maven-3.1.0/.m2/repository/ognl/ognl/3.1.4/ognl-3.1.4.jar</webClassPathEntry>
+        <webClassPathEntry>D:/maven-3.1.0/.m2/repository/org/apache/activemq/activemq-core/5.7.0/activemq-core-5.7.0.jar</webClassPathEntry>
         <webClassPathEntry>D:/maven-3.1.0/.m2/repository/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar</webClassPathEntry>
+        <webClassPathEntry>D:/maven-3.1.0/.m2/repository/org/apache/geronimo/specs/geronimo-j2ee-management_1.1_spec/1.0.1/geronimo-j2ee-management_1.1_spec-1.0.1.jar</webClassPathEntry>
+        <webClassPathEntry>D:/maven-3.1.0/.m2/repository/org/apache/geronimo/specs/geronimo-jms_1.1_spec/1.1.1/geronimo-jms_1.1_spec-1.1.1.jar</webClassPathEntry>
         <webClassPathEntry>D:/maven-3.1.0/.m2/repository/org/javassist/javassist/3.20.0-GA/javassist-3.20.0-GA.jar</webClassPathEntry>
         <webClassPathEntry>D:/maven-3.1.0/.m2/repository/org/springframework/spring-aop/4.1.1.RELEASE/spring-aop-4.1.1.RELEASE.jar</webClassPathEntry>
         <webClassPathEntry>D:/maven-3.1.0/.m2/repository/org/springframework/spring-beans/4.1.1.RELEASE/spring-beans-4.1.1.RELEASE.jar</webClassPathEntry>
         <webClassPathEntry>D:/maven-3.1.0/.m2/repository/org/springframework/spring-context/4.1.1.RELEASE/spring-context-4.1.1.RELEASE.jar</webClassPathEntry>
         <webClassPathEntry>D:/maven-3.1.0/.m2/repository/org/springframework/spring-core/4.1.1.RELEASE/spring-core-4.1.1.RELEASE.jar</webClassPathEntry>
         <webClassPathEntry>D:/maven-3.1.0/.m2/repository/org/springframework/spring-expression/4.1.7.RELEASE/spring-expression-4.1.7.RELEASE.jar</webClassPathEntry>
+        <webClassPathEntry>D:/maven-3.1.0/.m2/repository/org/springframework/spring-jms/4.1.1.RELEASE/spring-jms-4.1.1.RELEASE.jar</webClassPathEntry>
+        <webClassPathEntry>D:/maven-3.1.0/.m2/repository/org/springframework/spring-tx/4.1.1.RELEASE/spring-tx-4.1.1.RELEASE.jar</webClassPathEntry>
         <webClassPathEntry>D:/maven-3.1.0/.m2/repository/org/springframework/spring-web/4.1.1.RELEASE/spring-web-4.1.1.RELEASE.jar</webClassPathEntry>
         <webClassPathEntry>D:/maven-3.1.0/.m2/repository/slf4j-api/slf4j-api/1.5.2/slf4j-api-1.5.2.jar</webClassPathEntry>
         <webClassPathEntry>D:/maven-3.1.0/.m2/repository/slf4j-simple/slf4j-simple/1.5.2/slf4j-simple-1.5.2.jar</webClassPathEntry>

@@ -8,6 +8,7 @@
 		<action name="operList" class="activemqAction" method="operList">
 			<result name="success">/WEB-INF/templates/activemq/list.jsp</result>
 		</action>		
-		<action name="testMem" class="memcachedAction" method="testMem"></action>
+		<action name="putInQuene" class="activemqAction" method="putInQuene"></action>
+		<action name="getOutQuene" class="activemqAction" method="getOutQuene"></action>
 	</package>
 </struts>

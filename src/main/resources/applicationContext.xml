@@ -14,7 +14,74 @@
            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
 
+
+<!--创建连接工厂-->
+    <bean id="connectionFactory"
+        class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="tcp://localhost:61616"></property>
+    </bean>
+    <!-- 声明ActiveMQ消息目标,目标可以是一个队列，也可以是一个主题ActiveMQTopic-->
+    <bean id="destination" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg index="0" value="edu.sjtu.erplab.springactivemq2"></constructor-arg>
+    </bean>
+    <!---->
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="connectionFactory"></property>
+        <property name="defaultDestination" ref="destination"></property>
+        <property name="receiveTimeout" value="600"></property>
+
+    </bean>
+    <bean id="receiver" class="com.hx.mq.Receiver">
+        <property name="jmsTemplate" ref="jmsTemplate"></property>
+
+    </bean>
+    <bean id="sender" class="com.hx.mq.Sender">
+        <property name="jmsTemplate" ref="jmsTemplate"></property>
+    </bean>
+
 	     
+<!-- 	配置connectionFactory --> 
+<!--     <bean id="jmsFactory" class="org.apache.activemq.pool.PooledConnectionFactory" -->
+<!--         destroy-method="stop"> -->
+<!--         <property name="connectionFactory"> -->
+<!--             <bean class="org.apache.activemq.ActiveMQConnectionFactory"> -->
+<!--                 <property name="brokerURL"> -->
+<!--                     <value>tcp://127.0.0.1:61616</value> -->
+<!--                 </property> -->
+<!--             </bean> -->
+<!--         </property> -->
+<!--         <property name="maxConnections" value="100"></property> -->
+<!--     </bean> -->
+
+<!--     Spring JMS Template -->
+<!--     <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate"> -->
+<!--         <property name="connectionFactory"> -->
+<!--             <ref local="jmsFactory" /> -->
+<!--         </property> -->
+<!--         <property name="defaultDestinationName" value="subject" /> -->
+<!--         区别它采用的模式为false是p2p为true是订阅 -->
+<!--         <property name="pubSubDomain" value="true" /> -->
+<!--     </bean> -->
+
+<!--     发送消息的目的地（一个队列） -->
+<!--     <bean id="destination" class="org.apache.activemq.command.ActiveMQTopic"> -->
+<!--         设置消息队列的名字 -->
+<!--         <constructor-arg index="0" value="subject" /> -->
+<!--     </bean> -->
+
+
+
+
+<!--     <bean id="messageReceiver" class="edu.sjtu.erplab.springactivemq.ProxyJMSConsumer"> -->
+<!--         class="edu.sjtu.erplab.springactivemq.ProxyJMSConsumer"> -->
+<!--         <property name="jmsTemplate" ref="jmsTemplate"></property> -->
+<!--     </bean>      -->
+	     
+	     
+	     
+	     
+	     
+	
 	     
 	
     <!-- 开启注解方式，下边两行代码都是 -->
