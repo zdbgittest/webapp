@@ -33,7 +33,6 @@
     </bean>
     <bean id="receiver" class="com.hx.mq.Receiver">
         <property name="jmsTemplate" ref="jmsTemplate"></property>
-
     </bean>
     <bean id="sender" class="com.hx.mq.Sender">
         <property name="jmsTemplate" ref="jmsTemplate"></property>

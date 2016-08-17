@@ -1,8 +1,15 @@
 package com.hx.action;
 
+import javax.jms.JMSException;
+import javax.jms.MapMessage;
+import javax.jms.Message;
+import javax.jms.Session;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Controller;
 
 import com.hx.base.BaseAction;
@@ -15,6 +22,7 @@ public class ActivemqAction extends BaseAction{
 	private static final long serialVersionUID = 1L;
 	private Receiver receiver;
 	private Sender sender;
+	private JmsTemplate jmsTemplate;
 	
 	//前往activemq的测试页面
 	public String operList(){
@@ -68,5 +76,11 @@ public class ActivemqAction extends BaseAction{
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+	public JmsTemplate getJmsTemplate() {
+		return jmsTemplate;
+	}
+	public void setJmsTemplate(JmsTemplate jmsTemplate) {
+		this.jmsTemplate = jmsTemplate;
 	}
 }
