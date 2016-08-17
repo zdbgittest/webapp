@@ -9,6 +9,8 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
 
+import com.hx.model.Test;
+
 @Service("render")
 public class Sender {
     private JmsTemplate jmsTemplate;
@@ -19,11 +21,11 @@ public class Sender {
         this.jmsTemplate = jmsTemplate;
     }
     
-    public void sendInfo() {
+    public void sendInfo(final String name,final Test obj) {
         jmsTemplate.send(new MessageCreator() {
             public Message createMessage(Session session) throws JMSException {
                 MapMessage message = session.createMapMessage();
-                message.setString("lastName", "ppp");
+                message.setObject(name, obj);
                 return message;
             }
 

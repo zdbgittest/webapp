@@ -22,11 +22,11 @@ public class Receiver {
     public Receiver() {
     }
 
-    public String receiveMessage() {
+    public String receiveMessage(String name) {
         String my = "";
         MapMessage message = (MapMessage) jmsTemplate.receive();
         try {
-            my = message.getString("lastName");
+            my = message.getString(name);
         } catch (JMSException e) {
             throw JmsUtils.convertJmsAccessException(e);
         }

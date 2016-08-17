@@ -1,12 +1,15 @@
 package com.hx.model;
 
+import java.io.Serializable;
+
 /**
  * 测试类
  * @author zyq
  *
  * 2016年6月13日
  */
-public class Test {
+public class Test implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private String name;
 	private String age;
 	private String sex;
