@@ -15,4 +15,8 @@ public class SmallTest {
 	public void setStAge(String stAge) {
 		this.stAge = stAge;
 	}
+	@Override
+	public String toString() {
+		return "SmallTest [stName=" + stName + ", stAge=" + stAge + "]";
+	}
 }

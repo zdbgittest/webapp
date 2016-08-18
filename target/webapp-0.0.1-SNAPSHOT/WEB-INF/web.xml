@@ -67,6 +67,20 @@
         <servlet-name>ChatServlet</servlet-name>
         <url-pattern>/webSocket/createLink</url-pattern>
     </servlet-mapping>
+    
+    
+    <servlet>
+        <servlet-name>numberOnline</servlet-name>
+        <servlet-class>com.hx.util.NumberOnline</servlet-class>
+    </servlet>
+  	<servlet-mapping>
+        <servlet-name>numberOnline</servlet-name>
+        <url-pattern>/webSocket/goNumberOnline</url-pattern>
+    </servlet-mapping>
+    
+  	
+  	
+  	
   	
   	<!-- 设置session的失效时间是300分钟 -->
 	<session-config>

@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="/login/test.action">进入测试页面</a>
+	<a href="/test/test.action">进入测试页面</a>
+	<br>
+	<a href="/mem/list.action">memcached测试页面</a>
+	<br>
+	<a href="/activemq/operList.action">activemq测试页面</a>
 </body>
 </html>

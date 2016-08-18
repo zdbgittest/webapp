@@ -17,5 +17,14 @@
 	<a href="/test/testSimgle.action">测试service层是不是单例的</a>
 	<br>
 	<a href="/test/testRequestMapping.action">测试RequestMapping是否起作用</a>
+	<br>
+	<a href="/test/testWobSocket.action">测试websocket 的聊天系统</a>
+	<br>
+	<a href="/test/toNumberOnline.action">在线人数统计页面</a>
+	<br>
+	<a href="/test/toLogoutJsp.action">前往在线用户注销页面</a>
+	
+	<br>
+	<a href="/test/testMyTag.action">前往java数据验证页面</a>
 </body>
 </html>

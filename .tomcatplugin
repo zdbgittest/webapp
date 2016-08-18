@@ -14,12 +14,17 @@
         <webClassPathEntry>/webapp/target/test-classes</webClassPathEntry>
         <webClassPathEntry>D:/maven-3.1.0/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar</webClassPathEntry>
         <webClassPathEntry>D:/maven-3.1.0/.m2/repository/com/danga/java_memcached-release/2.6.6/java_memcached-release-2.6.6.jar</webClassPathEntry>
+        <webClassPathEntry>D:/maven-3.1.0/.m2/repository/commons-beanutils/commons-beanutils/1.8.2/commons-beanutils-1.8.2.jar</webClassPathEntry>
+        <webClassPathEntry>D:/maven-3.1.0/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar</webClassPathEntry>
         <webClassPathEntry>D:/maven-3.1.0/.m2/repository/commons-fileupload/commons-fileupload/1.3.1/commons-fileupload-1.3.1.jar</webClassPathEntry>
         <webClassPathEntry>D:/maven-3.1.0/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar</webClassPathEntry>
+        <webClassPathEntry>D:/maven-3.1.0/.m2/repository/commons-lang/commons-lang/2.5/commons-lang-2.5.jar</webClassPathEntry>
         <webClassPathEntry>D:/maven-3.1.0/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar</webClassPathEntry>
         <webClassPathEntry>D:/maven-3.1.0/.m2/repository/commons-pool/commons-pool/1.6/commons-pool-1.6.jar</webClassPathEntry>
+        <webClassPathEntry>D:/maven-3.1.0/.m2/repository/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.jar</webClassPathEntry>
         <webClassPathEntry>D:/maven-3.1.0/.m2/repository/freemarker/freemarker/2.3.16/freemarker-2.3.16.jar</webClassPathEntry>
         <webClassPathEntry>D:/maven-3.1.0/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar</webClassPathEntry>
+        <webClassPathEntry>D:/maven-3.1.0/.m2/repository/net/sf/json-lib/json-lib/2.4/json-lib-2.4-jdk15.jar</webClassPathEntry>
         <webClassPathEntry>D:/maven-3.1.0/.m2/repository/ognl/ognl/3.1.4/ognl-3.1.4.jar</webClassPathEntry>
         <webClassPathEntry>D:/maven-3.1.0/.m2/repository/org/apache/activemq/activemq-core/5.7.0/activemq-core-5.7.0.jar</webClassPathEntry>
         <webClassPathEntry>D:/maven-3.1.0/.m2/repository/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar</webClassPathEntry>

@@ -21,11 +21,11 @@ public class Sender {
         this.jmsTemplate = jmsTemplate;
     }
     
-    public void sendInfo(final String name,final Test obj) {
+    public void sendInfo(final String name,final String str) {
         jmsTemplate.send(new MessageCreator() {
             public Message createMessage(Session session) throws JMSException {
                 MapMessage message = session.createMapMessage();
-                message.setObject(name, obj);
+                message.setObject(name, str);
                 return message;
             }
 

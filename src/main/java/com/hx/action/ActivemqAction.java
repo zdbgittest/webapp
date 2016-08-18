@@ -8,9 +8,11 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Controller;
 
 import com.hx.base.BaseAction;
-import com.hx.model.Test;
+import com.hx.model.SmallTest;
 import com.hx.mq.Receiver;
 import com.hx.mq.Sender;
+
+import net.sf.json.JSONObject;
 
 @Controller
 @Scope("prototype")
@@ -42,14 +44,15 @@ public class ActivemqAction extends BaseAction{
 //			ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 //	        Sender sender = (Sender) context.getBean("sender");
 			
-			Test t = new Test();
-			t.setAddress("1");
-			t.setAge("2");
-			t.setName("3");
-			t.setRemark("4");
-			//先讲对象转换成json对象，再讲json对象转换成string
+			SmallTest t = new SmallTest();
+			t.setStAge("1234");
+			t.setStName("张三");
 			
-			sender.sendInfo("name",t);
+			//先讲对象转换成json对象，再讲json对象转换成string
+			JSONObject json = JSONObject.fromObject(t);
+			String str = json.toString();
+			
+			sender.sendInfo("name",str);
 			writeAjaxString("成功了");
 		}catch(Exception e){
 			e.printStackTrace();
@@ -61,7 +64,12 @@ public class ActivemqAction extends BaseAction{
 		try{
 //			ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 //			Receiver receiver = (Receiver) context.getBean("receiver");
-			System.out.print(receiver.receiveMessage("name"));
+			JSONObject obj = JSONObject.fromObject(receiver.receiveMessage("name"));
+			
+			SmallTest t = (SmallTest)JSONObject.toBean(obj,SmallTest.class);
+			
+			System.out.println("age:"+t.getStAge()+"   name:"+t.getStName());
+			System.out.println(t.toString());
 			writeAjaxString("成功了");
 		}catch(Exception e){
 			e.printStackTrace();

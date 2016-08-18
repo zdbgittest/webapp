@@ -56,5 +56,30 @@
 			method="testSimgle">
 			<result name="success">/WEB-INF/templates/test.jsp</result>
 		</action>
+		
+		
+		<action name="testWobSocket" class="testAction" 
+			method="testWobSocket">
+			<result name="success">/WEB-INF/templates/test/testWobSocket.xhtml</result>
+		</action>
+		
+		
+		<action name="toNumberOnline" class="testAction" 
+			method="toNumberOnline">
+			<result name="success">/WEB-INF/templates/test/numberOnline.xhtml</result>
+		</action>
+		
+		
+		<action name="toLogoutJsp" class="testAction" 
+			method="toLogoutJsp">
+			<result name="success">/WEB-INF/templates/test/toLogoutJsp.jsp</result>
+		</action>
+		
+		
+		
+		<action name="destorySession" class="testAction" method="destorySession">
+		</action>
+		
+		
 	</package>
 </struts>
