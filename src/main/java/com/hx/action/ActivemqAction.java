@@ -14,6 +14,13 @@ import com.hx.mq.Sender;
 
 import net.sf.json.JSONObject;
 
+/**
+ * activemq运用的过程中，如果想发挥它最大的优势，那么无论是生产者还是消费者，最好都用多线程处理，
+ * 以为activemq就是为了处理大并发，可以异步处理的需求
+ * @author zyq
+ *
+ * 2016年8月18日
+ */
 @Controller
 @Scope("prototype")
 public class ActivemqAction extends BaseAction{
