@@ -15,6 +15,10 @@
            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
 
 
+
+	
+
+
 <!--创建连接工厂-->
     <bean id="connectionFactory"
         class="org.apache.activemq.ActiveMQConnectionFactory">
@@ -82,7 +86,6 @@
 	     
 	
 	     
-	
     <!-- 开启注解方式，下边两行代码都是 -->
     <context:annotation-config /><!-- 添加注解驱动 -->
     <context:component-scan base-package="com.hx.*"/><!-- 注解扫描什么包 -->
@@ -90,5 +93,8 @@
 	 
 	 <!-- 引入memcached配置文件 -->
 	<import resource="spring-memcached.xml"/>
-	 
+	
+    
+	<!-- 打开aop 注解 -->
+    <aop:aspectj-autoproxy />
 </beans>

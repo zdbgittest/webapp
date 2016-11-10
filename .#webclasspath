@@ -13,7 +13,6 @@ D:\maven-3.1.0\.m2\repository\org\springframework\spring-beans\4.1.1.RELEASE\spr
 D:\maven-3.1.0\.m2\repository\org\springframework\spring-core\4.1.1.RELEASE\spring-core-4.1.1.RELEASE.jar
 D:\maven-3.1.0\.m2\repository\org\springframework\spring-web\4.1.1.RELEASE\spring-web-4.1.1.RELEASE.jar
 D:\maven-3.1.0\.m2\repository\org\springframework\spring-aop\4.1.1.RELEASE\spring-aop-4.1.1.RELEASE.jar
-D:\maven-3.1.0\.m2\repository\aopalliance\aopalliance\1.0\aopalliance-1.0.jar
 D:\maven-3.1.0\.m2\repository\org\springframework\spring-context\4.1.1.RELEASE\spring-context-4.1.1.RELEASE.jar
 D:\maven-3.1.0\.m2\repository\struts-spring-plugin\struts-spring-plugin\2.1.2\struts-spring-plugin-2.1.2.jar
 D:\maven-3.1.0\.m2\repository\javax\annotation\javax.annotation-api\1.2\javax.annotation-api-1.2.jar
@@ -32,3 +31,6 @@ D:\maven-3.1.0\.m2\repository\commons-lang\commons-lang\2.5\commons-lang-2.5.jar
 D:\maven-3.1.0\.m2\repository\commons-beanutils\commons-beanutils\1.8.2\commons-beanutils-1.8.2.jar
 D:\maven-3.1.0\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar
 D:\maven-3.1.0\.m2\repository\ezmorph\ezmorph\1.0.6\ezmorph-1.0.6.jar
+D:\maven-3.1.0\.m2\repository\aspectjweaver\aspectjweaver\1.8.8\aspectjweaver-1.8.8.jar
+D:\maven-3.1.0\.m2\repository\aopalliance\aopalliance\1.0\aopalliance-1.0.jar
+D:\maven-3.1.0\.m2\repository\org\aspectj\aspectjrt\1.8.6\aspectjrt-1.8.6.jar
