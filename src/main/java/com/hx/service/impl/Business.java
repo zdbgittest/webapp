@@ -16,9 +16,6 @@ public class Business {
      */
     public String delete(String obj) {
         System.out.println("我是執行的方法");
-        int i=1;
-        int j=1;
-        int g = 10/(i-j);
         return obj + "：瞄～";
     }
 

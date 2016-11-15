@@ -12,5 +12,7 @@
 	<a href="/mem/list.action">memcached测试页面</a>
 	<br>
 	<a href="/activemq/operList.action">activemq测试页面</a>
+	<br>
+	<a href="/aoq/toAopList.action">前往aop测试页面</a>
 </body>
 </html>

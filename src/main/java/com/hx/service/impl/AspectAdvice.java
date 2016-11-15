@@ -75,7 +75,7 @@ public class AspectAdvice {
      * @param pjp
      *            连接点
      */
-   // @Around(value = "execution(* com.hx.service.impl.*.*(..))")
+    @Around(value = "execution(* com.hx.service.impl.*.*(..))")
     public void doAround(ProceedingJoinPoint pjp) throws Throwable {
         System.out.println("===========进入around环绕方法！=========== \n");
 
@@ -89,7 +89,9 @@ public class AspectAdvice {
         // 获取目标对象
         Object target = pjp.getTarget();
         // 执行完方法的返回值：调用proceed()方法，就会触发切入点方法执行
+        System.out.println("执行前");
         Object result = pjp.proceed();
+        System.out.println("执行后");
 
         System.out.println("输出：" + args[0] + ";" + method + ";" + target + ";" + result + "\n");
         System.out.println("调用方法结束：之后执行！\n");
@@ -103,6 +105,16 @@ public class AspectAdvice {
      */
     @AfterThrowing(value = "execution(* com.hx.service.impl.*.*(..))", throwing = "e")
     public void doThrow(JoinPoint jp, Throwable e) {
+    	System.out.println("getKind                    "+jp.getKind());
+    	System.out.println("getTarget                  "+jp.getTarget());
+    	System.out.println("toLongString               "+jp.toLongString());
+    	System.out.println("toShortString              "+jp.toShortString());
+    	System.out.println("getArgs                    "+jp.getArgs());
+    	System.out.println("getSignature               "+jp.getSignature());
+    	System.out.println("getSourceLocation          "+jp.getSourceLocation());
+    	System.out.println("getStaticPart              "+jp.getStaticPart());
+    	
+    	
         System.out.println("删除出错啦");
     }
 
